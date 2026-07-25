@@ -1,4 +1,4 @@
-<section class="relative w-full bg-black py-12 sm:py-16 lg:py-20">
+<section class="relative w-full bg-white py-12 sm:py-16 lg:py-20">
   <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="mb-8 text-center">
@@ -17,7 +17,7 @@
       <div class="mb-8 flex justify-center">
         <div class="inline-flex items-center gap-3">
           <span class="text-sm font-semibold text-gray-700">Filter:</span>
-          <select id="period-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm">
+          <select id="period-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
             <option value="">All Periods</option>
             <% @class_periods.each do |period| %>
               <option value="<%= period %>" <% if @selected_period == period %>selected<% end %>>
@@ -43,8 +43,8 @@
               onerror="this.style.display='none'; this.parentElement.classList.add('bg-gray-200')" />
             
             <!-- Hover Overlay -->
-            <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <button class="px-6 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition"
+            <div class="absolute inset-0 bg-red-900/45 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <button class="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition"
                       onclick="openLightbox('<%= image['url'] %>')">
                 View
               </button>
@@ -61,7 +61,7 @@
 </section>
 
 <!-- Lightbox Modal -->
-<div id="lightbox" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+<div id="lightbox" class="hidden fixed inset-0 bg-blue-950/80 z-50 flex items-center justify-center p-4">
   <div class="relative max-w-4xl w-full">
     <button onclick="closeLightbox()" 
             class="absolute -top-10 right-0 text-white hover:text-gray-300 text-3xl">

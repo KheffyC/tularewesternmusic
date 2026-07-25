@@ -1,5 +1,5 @@
 <header x-data="navbar">
-	<nav class="top-0 flex min-h-[88px] w-full items-center justify-between px-4 py-5 lg:relative lg:z-0 lg:min-h-[104px]" style="background: radial-gradient(circle at 50% 50%, rgba(76, 29, 149, 1) 43%, rgba(126, 34, 206, 1) 72%)">
+	<nav class="top-0 flex min-h-[88px] w-full items-center justify-between border-b-2 border-red-500 px-4 py-5 lg:relative lg:z-0 lg:min-h-[104px]" style="background: linear-gradient(0deg, rgba(37, 99, 235, 1) 24%, rgba(30, 58, 138, 1) 100%)">
 		<%= link_to image_tag('logo.png', class: 'h-14 w-auto'), root_path, class: "flex items-center pl-2" %>
 		<div class="2x-lg:hidden x-lg:hidden lg:hidden">
 			<button @click="toggle()" @touchend="toggle()" class="navbar-burger flex items-center text-blue-600 p-3">
@@ -16,32 +16,32 @@
 			<li class="px-4"><%= link_to 'Fundraising', fundraisers_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 			<li class="px-4"><%= link_to 'Contact', contacts_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 		</ul>
-		<%= link_to 'CUT TIME LOGIN', "https://app.gocuttime.com/login", target: '_blank', class: "hidden lg:inline-block lg:ml-auto py-2 px-6 border border-white bg-purple-700 text-sm text-white font-bold transition duration-200 hover:bg-purple-600" %>
+		<%= link_to 'CUT TIME LOGIN', "https://app.gocuttime.com/login", target: '_blank', class: "hidden lg:inline-block lg:ml-auto py-2 px-6 border border-white bg-blue-700 text-sm text-white font-bold transition duration-200 hover:bg-blue-600" %>
 		<% if donations_enabled? %>
-			<%= link_to 'DONATE', donations_path, class: "hidden lg:inline-block py-2 px-6 mx-4 border border-white bg-purple-700 text-sm text-white font-bold transition duration-200 hover:bg-purple-600" %>
+			<%= link_to 'DONATE', donations_path, class: "hidden lg:inline-block py-2 px-6 mx-4 border border-red-300 bg-red-600 text-sm text-white font-bold transition duration-200 hover:bg-red-500" %>
 		<% end %>
 	</nav>
 	<div id="navbar-menu" class="navbar-menu relative z-50 hidden">
 		<div @click="toggle()" @touchend="toggle()" class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto" style="background: linear-gradient(0deg, rgba(17, 24, 39, 1) 21%, rgba(126, 34, 206, 1) 89%);">
+		<nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto" style="background: linear-gradient(0deg, rgba(30, 58, 138, 1) 18%, rgba(37, 99, 235, 1) 84%, rgba(220, 38, 38, 0.28) 100%);">
 			<div class="flex justify-between items-center mb-4" >
 			<%= link_to image_tag('logo.png', class: 'h-12 w-auto'), root_path, class: 'flex items-center pl-2'%>
 				<button @click="toggle()" @touchend="toggle()" class="navbar-close">X</button>
 			</div>
-			<hr class="text-black" />
+			<hr class="border-red-200/60" />
 			<div>
 				<ul>
-					<li class="mb-1"><%= link_to 'Home', home_index_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
-					<li class="mb-1"><%= link_to 'Class Schedule', home_about_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
-					<li class="mb-1"><%= link_to 'Documents', amazon_pdfs_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
-					<li class="mb-1"><%= link_to 'Gallery', galleries_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
-					<li class="mb-1"><%= link_to 'Fundraising', fundraisers_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
-					<li class="mb-1"><%= link_to 'Contact',  contacts_path, class: "block p-4 text-sm font-semibold text-gray-100 hover:bg-purple-500 hover:text-black rounded" %></li>
+					<li class="mb-1"><%= link_to 'Home', home_index_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
+					<li class="mb-1"><%= link_to 'Class Schedule', home_about_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
+					<li class="mb-1"><%= link_to 'Documents', amazon_pdfs_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
+					<li class="mb-1"><%= link_to 'Gallery', galleries_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
+					<li class="mb-1"><%= link_to 'Fundraising', fundraisers_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
+					<li class="mb-1"><%= link_to 'Contact',  contacts_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
 				</ul>
 				<div class="pt-6">
-					<%= link_to 'CUT TIME LOGIN', "https://app.gocuttime.com/login", target: '_blank', class: "block px-4 py-3 mb-3 leading-loose text-sm text-center font-semibold border border-white bg-purple-700 text-white hover:bg-purple-600 rounded-xl"%>
+					<%= link_to 'CUT TIME LOGIN', "https://app.gocuttime.com/login", target: '_blank', class: "block px-4 py-3 mb-3 leading-loose text-sm text-center font-semibold border border-white bg-blue-700 text-white hover:bg-blue-600 rounded-xl"%>
 					<% if donations_enabled? %>
-						<%= link_to 'DONATE', donations_path, class: "block px-4 py-3 mb-3 leading-loose text-sm text-center font-semibold border border-white bg-purple-700 text-white hover:bg-purple-600 rounded-xl"%>
+						<%= link_to 'DONATE', donations_path, class: "mb-3 block rounded-xl border border-red-300 bg-red-600 px-4 py-3 text-center text-sm font-semibold leading-loose text-white hover:bg-red-500"%>
 					<% end %>
 				</div>
 			</div>

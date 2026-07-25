@@ -1,25 +1,25 @@
-<div class="min-h-screen px-4 py-8 md:py-12">
+<div class="min-h-screen bg-white px-4 py-8 md:py-12">
   <div class="mx-auto w-full max-w-6xl space-y-10">
 
     <div class="space-y-3 text-center">
-      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-white">Fundraisers</h1>
-      <p class="mx-auto max-w-2xl text-sm md:text-base text-slate-200/90">
+      <h1 class="text-3xl font-extrabold tracking-tight text-blue-900 md:text-4xl [text-shadow:0_1px_0_rgba(220,38,38,0.85),0_-1px_0_rgba(220,38,38,0.85),1px_0_0_rgba(220,38,38,0.85),-1px_0_0_rgba(220,38,38,0.85)]">Fundraisers</h1>
+      <p class="mx-auto max-w-2xl text-sm text-blue-900/80 md:text-base">
         Support our programs — check out our current fundraisers below and share them with your community.
       </p>
       <% if current_director.present? %>
         <div class="flex justify-center pt-1">
-          <%= link_to 'Add New Fundraiser', new_fundraiser_path, class: 'inline-flex items-center justify-center rounded-lg border border-white bg-purple-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-900/30 transition hover:border-emerald-600 hover:bg-emerald-600 hover:text-white' %>
+          <%= link_to 'Add New Fundraiser', new_fundraiser_path, class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-blue-700 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-900/30 transition hover:bg-blue-600' %>
         </div>
       <% end %>
     </div>
 
     <% if @active_fundraisers.any? %>
       <section class="space-y-5">
-        <h2 class="text-xl md:text-2xl font-bold tracking-tight text-white">Active Now</h2>
+        <h2 class="text-xl font-bold tracking-tight text-blue-900 md:text-2xl">Active Now</h2>
         <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <% @active_fundraisers.each do |fundraiser| %>
             <article
-              class="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/35 bg-gradient-to-br from-white/15 via-slate-900/80 to-slate-950/90 shadow-xl shadow-white/20 ring-1 ring-white/20 backdrop-blur-sm transition hover:ring-white/50"
+              class="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-blue-300 bg-white shadow-md transition hover:-translate-y-1 hover:shadow-lg"
               role="link"
               tabindex="0"
               data-href="<%= fundraiser_path(fundraiser) %>"
@@ -27,7 +27,7 @@
               onkeydown="if(event.key==='Enter' || event.key===' '){event.preventDefault();window.location.href=this.dataset.href;}"
             >
               <% if fundraiser.flyer.attached? || fundraiser.main_image.present? %>
-                <div class="aspect-video w-full overflow-hidden bg-slate-800">
+                <div class="aspect-video w-full overflow-hidden bg-blue-100">
                   <% if fundraiser.flyer.attached? %>
                     <%= image_tag fundraiser.flyer, class: "h-full w-full object-cover transition group-hover:scale-105" %>
                   <% else %>
@@ -37,21 +37,21 @@
               <% end %>
               <div class="flex flex-1 flex-col space-y-3 p-5">
                 <div class="flex items-start justify-between gap-2">
-                  <h3 class="text-lg font-bold text-white leading-tight"><%= fundraiser.title %></h3>
-                  <span class="shrink-0 rounded-full bg-emerald-500/20 px-2.5 py-0.5 text-xs font-semibold text-emerald-300 border border-emerald-400/30">Active</span>
+                  <h3 class="text-lg font-bold leading-tight text-blue-900"><%= fundraiser.title %></h3>
+                  <span class="shrink-0 rounded-full border border-red-400 bg-blue-100 px-2.5 py-0.5 text-xs font-semibold text-blue-900">Active</span>
                 </div>
-                <p class="text-xs text-white/80 font-medium"><%= fundraiser.program.short_name.presence || fundraiser.program.name %></p>
+                <p class="text-xs font-medium text-blue-700"><%= fundraiser.program.short_name.presence || fundraiser.program.name %></p>
                 <% if fundraiser.goal.present? %>
-                  <p class="text-sm text-slate-200/90">Goal: <span class="font-semibold text-white"><%= fundraiser.goal %></span></p>
+                  <p class="text-sm text-blue-900/80">Goal: <span class="font-semibold text-blue-900"><%= fundraiser.goal %></span></p>
                 <% end %>
                 <% if fundraiser.description.present? %>
-                  <p class="text-sm text-slate-300 line-clamp-3 flex-1"><%= fundraiser.description %></p>
+                  <p class="line-clamp-3 flex-1 text-sm text-blue-900/75"><%= fundraiser.description %></p>
                 <% end %>
                 <div class="flex flex-wrap items-center gap-3 pt-2">
-                  <%= link_to 'View Details', fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-white bg-purple-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-purple-600', onclick: 'event.stopPropagation();' %>
+                  <%= link_to 'View Details', fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-blue-700 px-4 py-2 text-xs font-bold text-white transition hover:bg-blue-600', onclick: 'event.stopPropagation();' %>
                   <% if current_director.present? %>
-                    <%= link_to 'Edit', edit_fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-white bg-purple-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-purple-600', onclick: 'event.stopPropagation();' %>
-                    <%= link_to 'Delete', fundraiser_path(fundraiser), data: { turbo_method: :delete, turbo_confirm: "Remove #{fundraiser.title}?" }, class: 'inline-flex items-center justify-center rounded-lg bg-purple-600/70 px-4 py-2 text-xs font-bold text-white transition hover:bg-purple-500', onclick: 'event.stopPropagation();' %>
+                    <%= link_to 'Edit', edit_fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-blue-400 bg-blue-100 px-4 py-2 text-xs font-semibold text-blue-900 transition hover:bg-blue-200', onclick: 'event.stopPropagation();' %>
+                    <%= link_to 'Delete', fundraiser_path(fundraiser), data: { turbo_method: :delete, turbo_confirm: "Remove #{fundraiser.title}?" }, class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-red-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-red-500', onclick: 'event.stopPropagation();' %>
                   <% end %>
                 </div>
               </div>
@@ -63,11 +63,11 @@
 
     <% if @past_fundraisers.any? %>
       <section class="space-y-5">
-        <h2 class="text-xl md:text-2xl font-bold tracking-tight text-slate-300">Past Fundraisers</h2>
+        <h2 class="text-xl font-bold tracking-tight text-blue-900/80 md:text-2xl">Past Fundraisers</h2>
         <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <% @past_fundraisers.each do |fundraiser| %>
             <article
-              class="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-slate-700/30 via-slate-900/80 to-slate-950/90 shadow-lg ring-1 ring-white/10 backdrop-blur-sm transition hover:ring-white/25 opacity-80"
+              class="group flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-blue-200 bg-blue-100 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
               role="link"
               tabindex="0"
               data-href="<%= fundraiser_path(fundraiser) %>"
@@ -75,7 +75,7 @@
               onkeydown="if(event.key==='Enter' || event.key===' '){event.preventDefault();window.location.href=this.dataset.href;}"
             >
               <% if fundraiser.flyer.attached? || fundraiser.main_image.present? %>
-                <div class="aspect-video w-full overflow-hidden bg-slate-800 grayscale">
+                <div class="aspect-video w-full overflow-hidden bg-blue-200 grayscale">
                   <% if fundraiser.flyer.attached? %>
                     <%= image_tag fundraiser.flyer, class: "h-full w-full object-cover" %>
                   <% else %>
@@ -85,14 +85,14 @@
               <% end %>
               <div class="flex flex-1 flex-col space-y-2 p-5">
                 <div class="flex items-start justify-between gap-2">
-                  <h3 class="text-base font-bold text-slate-200 leading-tight"><%= fundraiser.title %></h3>
-                  <span class="shrink-0 rounded-full bg-slate-500/20 px-2.5 py-0.5 text-xs font-semibold text-slate-400 border border-slate-500/30">Ended</span>
+                  <h3 class="text-base font-bold leading-tight text-blue-900/80"><%= fundraiser.title %></h3>
+                  <span class="shrink-0 rounded-full border border-blue-300 bg-white px-2.5 py-0.5 text-xs font-semibold text-blue-700">Ended</span>
                 </div>
-                <p class="text-xs text-slate-400 font-medium"><%= fundraiser.program.short_name.presence || fundraiser.program.name %></p>
+                <p class="text-xs font-medium text-blue-700/70"><%= fundraiser.program.short_name.presence || fundraiser.program.name %></p>
                 <div class="pt-1">
-                  <%= link_to 'View Details', fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-white bg-purple-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-purple-600', onclick: 'event.stopPropagation();' %>
+                  <%= link_to 'View Details', fundraiser_path(fundraiser), class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-blue-700 px-4 py-2 text-xs font-semibold text-white transition hover:bg-blue-600', onclick: 'event.stopPropagation();' %>
                   <% if current_director.present? %>
-                    <%= link_to 'Delete', fundraiser_path(fundraiser), data: { turbo_method: :delete, turbo_confirm: "Remove #{fundraiser.title}?" }, class: 'ml-2 inline-flex items-center justify-center rounded-lg bg-purple-600/70 px-4 py-2 text-xs font-bold text-white transition hover:bg-purple-500', onclick: 'event.stopPropagation();' %>
+                    <%= link_to 'Delete', fundraiser_path(fundraiser), data: { turbo_method: :delete, turbo_confirm: "Remove #{fundraiser.title}?" }, class: 'ml-2 inline-flex items-center justify-center rounded-lg border border-red-400 bg-red-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-red-500', onclick: 'event.stopPropagation();' %>
                   <% end %>
                 </div>
               </div>
@@ -103,12 +103,12 @@
     <% end %>
 
     <% if @active_fundraisers.empty? && @past_fundraisers.empty? %>
-      <div class="rounded-2xl border border-white/15 bg-slate-900/50 py-16 text-center backdrop-blur-sm">
-        <p class="text-lg font-semibold text-slate-300">No fundraisers yet.</p>
-        <p class="mt-1 text-sm text-slate-400">Check back soon — something exciting is coming!</p>
+      <div class="rounded-2xl border border-blue-300 bg-white py-16 text-center">
+        <p class="text-lg font-semibold text-blue-900">No fundraisers yet.</p>
+        <p class="mt-1 text-sm text-blue-900/70">Check back soon — something exciting is coming!</p>
         <% if current_director.present? %>
           <div class="mt-6">
-            <%= link_to 'Create the First Fundraiser', new_fundraiser_path, class: 'inline-flex items-center justify-center rounded-lg border border-white bg-purple-700 px-5 py-2.5 text-sm font-bold text-white transition hover:border-emerald-600 hover:bg-emerald-600 hover:text-white' %>
+            <%= link_to 'Create the First Fundraiser', new_fundraiser_path, class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-blue-700 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-blue-600' %>
           </div>
         <% end %>
       </div>

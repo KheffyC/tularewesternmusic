@@ -1,4 +1,4 @@
-<div class="min-h-screen flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8" style="background: black;">
+<div class="min-h-screen bg-white flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
   <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 sm:p-10">
     <div class="text-center mb-8">
       <h1 class="font-display text-4xl font-bold text-gray-900 mb-2">Director Dashboard</h1>
@@ -13,7 +13,7 @@
           <%= f.email_field :email,
                             required: false,
                             autofocus: true,
-                            class: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition",
+                            class: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition",
                             autocomplete: "email" %>
         </div>
 
@@ -22,7 +22,7 @@
           <%= f.label :password, class: "block text-sm font-semibold text-gray-700 mb-2" %>
           <%= f.password_field :password,
                                required: false,
-                               class: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent transition",
+                               class: "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition",
                                autocomplete: "current-password" %>
         </div>
 
@@ -40,7 +40,7 @@
 
         <!-- Submit Button -->
         <div class="pt-4">
-          <%= f.button :submit, "Sign In", class: "w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 py-3 px-4 font-bold text-white rounded-lg transition duration-200 hover:shadow-lg" %>
+          <%= f.button :submit, "Sign In", class: "w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 py-3 px-4 font-bold text-white rounded-lg transition duration-200 hover:shadow-lg" %>
         </div>
       </div>
     <% end %>

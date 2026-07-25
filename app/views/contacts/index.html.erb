@@ -1,39 +1,39 @@
-<div class="min-h-[88vh] px-4 py-8 md:px-8 md:py-12">
+<div class="min-h-[88vh] bg-white px-4 py-8 md:px-8 md:py-12">
   <section class="mx-auto w-full max-w-5xl space-y-8">
     <div class="space-y-3 text-center">
-      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Contact</h1>
-      <p class="mx-auto max-w-3xl text-sm md:text-base text-slate-200/90">
+      <h1 class="text-3xl font-extrabold tracking-tight text-blue-900 md:text-5xl [text-shadow:0_1px_0_rgba(220,38,38,0.85),0_-1px_0_rgba(220,38,38,0.85),1px_0_0_rgba(220,38,38,0.85),-1px_0_0_rgba(220,38,38,0.85)]">Contact</h1>
+      <p class="mx-auto max-w-3xl text-sm text-blue-900/80 md:text-base">
         Phone numbers are also listed for direct calls in need of emergency only. 
       </p>
     </div>
 
     <div>
       <div class="mx-auto grid max-w-4xl grid-cols-1 items-stretch gap-5 md:grid-cols-2">
-        <article class="flex h-full flex-col justify-between rounded-2xl border border-sky-300/30 bg-gradient-to-br from-sky-500/15 via-slate-900/80 to-slate-950/90 p-6 text-white shadow-xl shadow-sky-500/20 ring-1 ring-sky-200/20 backdrop-blur-sm">
+        <article class="flex h-full flex-col justify-between rounded-2xl border border-blue-300 bg-white p-6 text-blue-900 shadow-sm">
           <div class="space-y-1.5">
-            <h3 class="mb-2 text-lg font-bold">Director of Instrumental Music</h3>
-            <p class="text-slate-100"><%= @school&.director_name.presence || 'Test Director' %></p>
-            <p class="text-slate-200"><%= @school&.director_phone.presence || '(559) xxx-xxxx' %></p>
+            <h3 class="mb-2 text-lg font-bold text-blue-900">Director of Instrumental Music</h3>
+            <p class="text-blue-900"><%= @school&.director_name.presence || 'Test Director' %></p>
+            <p class="text-blue-900/85"><%= @school&.director_phone.presence || '(559) xxx-xxxx' %></p>
             <% director_email = @school&.director_email.presence || 'director@test.com' %>
-            <div class="mt-1 text-slate-200">
-              <p class="break-all"><%= mail_to director_email, director_email, class: 'underline decoration-slate-300/70 underline-offset-2 transition hover:text-white' %></p>
+            <div class="mt-1 text-blue-900/85">
+              <p class="break-all"><%= mail_to director_email, director_email, class: 'underline decoration-blue-400/80 underline-offset-2 transition hover:text-blue-700' %></p>
               <div class="mt-2 flex flex-wrap items-center gap-2">
-                <%= link_to 'Open in Gmail', "https://mail.google.com/mail/?view=cm&fs=1&to=#{ERB::Util.url_encode(director_email)}", target: '_blank', rel: 'noopener noreferrer', class: 'inline-flex items-center rounded-md border border-purple-300/35 bg-purple-500/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-purple-100 transition hover:bg-purple-500/25 hover:text-white' %>
-                <button type="button" data-copy-email="<%= director_email %>" class="inline-flex items-center rounded-md border border-white/20 bg-transparent px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-300 transition hover:bg-white/10 hover:text-white">Copy Email</button>
+                <%= link_to 'Open in Gmail', "https://mail.google.com/mail/?view=cm&fs=1&to=#{ERB::Util.url_encode(director_email)}", target: '_blank', rel: 'noopener noreferrer', class: 'inline-flex items-center rounded-md border border-red-400 bg-blue-700 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-blue-600' %>
+                <button type="button" data-copy-email="<%= director_email %>" class="inline-flex items-center rounded-md border border-blue-300 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-900 transition hover:bg-blue-100">Copy Email</button>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="flex h-full flex-col justify-between rounded-2xl border border-violet-300/30 bg-gradient-to-br from-violet-500/15 via-slate-900/80 to-slate-950/90 p-6 text-white shadow-xl shadow-violet-500/20 ring-1 ring-violet-200/20 backdrop-blur-sm">
+        <article class="flex h-full flex-col justify-between rounded-2xl border border-blue-300 bg-white p-6 text-blue-900 shadow-sm">
           <div class="space-y-1.5">
-            <h3 class="mb-2 text-lg font-bold">Booster Questions</h3>
-            <% booster_email = 'mohsbandpres@gmail.com' %>
-            <div class="text-slate-100">
-              <p class="break-all"><%= mail_to booster_email, booster_email, class: 'underline decoration-slate-300/70 underline-offset-2 transition hover:text-white' %></p>
+            <h3 class="mb-2 text-lg font-bold text-blue-900">Booster Questions</h3>
+            <% booster_email = 'twhsmusicboosters@gmail.com' %>
+            <div class="text-blue-900/85">
+              <p class="break-all"><%= mail_to booster_email, booster_email, class: 'underline decoration-blue-400/80 underline-offset-2 transition hover:text-blue-700' %></p>
               <div class="mt-2 flex flex-wrap items-center gap-2">
-                <%= link_to 'Open in Gmail', "https://mail.google.com/mail/?view=cm&fs=1&to=#{ERB::Util.url_encode(booster_email)}", target: '_blank', rel: 'noopener noreferrer', class: 'inline-flex items-center rounded-md border border-purple-300/35 bg-purple-500/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-purple-100 transition hover:bg-purple-500/25 hover:text-white' %>
-                <button type="button" data-copy-email="<%= booster_email %>" class="inline-flex items-center rounded-md border border-white/20 bg-transparent px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-300 transition hover:bg-white/10 hover:text-white">Copy Email</button>
+                <%= link_to 'Open in Gmail', "https://mail.google.com/mail/?view=cm&fs=1&to=#{ERB::Util.url_encode(booster_email)}", target: '_blank', rel: 'noopener noreferrer', class: 'inline-flex items-center rounded-md border border-red-400 bg-blue-700 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-blue-600' %>
+                <button type="button" data-copy-email="<%= booster_email %>" class="inline-flex items-center rounded-md border border-blue-300 bg-blue-50 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-blue-900 transition hover:bg-blue-100">Copy Email</button>
               </div>
             </div>
           </div>

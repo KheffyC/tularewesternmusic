@@ -10,7 +10,7 @@
     <% label = resource.new_record? ? "✓ Create" : "✓ Update" %>
     <% resource_label = dashboard&.class&.name&.gsub(/Dashboard$/, '') || resource.class.model_name.singular %>
     <%= f.button "#{label} #{resource_label}", 
-        class: "px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold rounded-lg transition shadow-md" %>
+        class: "px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition shadow-md" %>
     
     <% cancel_path = dashboard ? send("admin_#{dashboard.class.name.gsub(/Dashboard$/, '').underscore.pluralize}_path") : admin_root_path %>
     <%= link_to "Cancel", cancel_path, 
@@ -35,7 +35,7 @@
       <% if resource.is_a?(Gallery) && %w[school school_id].include?(attr.to_s) %>
         <label class="block text-sm font-semibold text-gray-700 mb-2">
           School
-          <span class="text-purple-600">*</span>
+          <span class="text-blue-600">*</span>
         </label>
         <% selected_school_id = resource.school_id.presence || params[:school_id].presence || params.dig(resource.class.model_name.param_key, :school_id).presence || School.where(id: 1).pick(:id) %>
         <%= f.collection_select :school_id,
@@ -43,11 +43,11 @@
             :id,
             :name,
             { prompt: "Select a school", selected: selected_school_id },
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
       <% elsif attribute&.is_a?(Administrate::Field::Boolean) %>
         <!-- Checkbox -->
         <div class="flex items-center">
-          <%= f.check_box attr, { class: "h-5 w-5 text-purple-600 rounded focus:ring-2 focus:ring-purple-600" } %>
+          <%= f.check_box attr, { class: "h-5 w-5 text-blue-600 rounded focus:ring-2 focus:ring-blue-600" } %>
           <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="ml-3 text-sm font-semibold text-gray-700">
             <%= attribute&.label || attr.to_s.humanize %>
           </label>
@@ -57,7 +57,7 @@
         <label class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || association_name.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <% association_records = if attribute && attribute.respond_to?(:associated_resource_options)
@@ -87,7 +87,7 @@
           <%= f.select select_field,
               options_for_select(option_pairs, selected_association),
               { prompt: "Select a #{association_name.humanize.downcase}", include_blank: !attribute&.options&.dig(:required) },
-              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
         <% end %>
       <% elsif has_many_field %>
         <!-- HasMany Summary -->
@@ -113,62 +113,62 @@
         <label class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || attr.to_s.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <%= f.select attr,
             attribute&.options&.dig(:collection) || [],
             { prompt: "Select an option", include_blank: !attribute&.options&.dig(:required) },
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
       <% elsif attribute&.is_a?(Administrate::Field::Text) || attribute&.is_a?(Administrate::Field::Textarea) %>
         <!-- Text Area -->
         <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || attr.to_s.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <%= f.text_area attr,
             rows: 5,
             placeholder: "Enter #{attr.to_s.humanize.downcase}...",
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition resize-none" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition resize-none" %>
       <% elsif attribute&.is_a?(Administrate::Field::Date) %>
         <!-- Date Input -->
         <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || attr.to_s.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <%= f.date_field attr,
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
       <% elsif attribute&.is_a?(Administrate::Field::DateTime) %>
         <!-- DateTime Input -->
         <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || attr.to_s.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <%= f.datetime_select attr,
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
       <% elsif attribute&.is_a?(Administrate::Field::Number) %>
         <!-- Number Input -->
         <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || attr.to_s.humanize %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         <%= f.number_field attr,
             placeholder: "Enter a number",
-            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+            class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
       <% else %>
         <!-- Default: String/Text Input -->
         <label for="<%= resource.class.model_name.param_key %>_<%= attr %>" class="block text-sm font-semibold text-gray-700 mb-2">
           <%= attribute&.label || (attr_name == "about_hero_image" ? "About Page Hero Image" : attr.to_s.humanize) %>
           <% if attribute&.options&.dig(:required) %>
-            <span class="text-purple-600">*</span>
+            <span class="text-blue-600">*</span>
           <% end %>
         </label>
         
@@ -180,12 +180,12 @@
 
           <div class="space-y-4">
             <div id="gallery-dropzone"
-                 class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center transition hover:border-purple-500 hover:bg-purple-50 cursor-pointer"
+                 class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center transition hover:border-blue-500 hover:bg-blue-50 cursor-pointer"
                  data-upload-url="<%= upload_url %>">
               <p class="text-sm font-semibold text-gray-800">Drag and drop images here, or click to upload</p>
               <p class="text-xs text-gray-500 mt-1">Max 10MB per image. Images upload to S3 immediately.</p>
               <% unless resource.persisted? %>
-                <p class="text-xs text-purple-600 mt-2">Save this gallery first, then upload images.</p>
+                <p class="text-xs text-blue-600 mt-2">Save this gallery first, then upload images.</p>
               <% end %>
               <input id="gallery-file-input" type="file" accept="image/*" multiple class="hidden" <%= resource.persisted? ? "" : "disabled" %> />
             </div>
@@ -199,7 +199,7 @@
                   <img src="<%= img["url"] %>" alt="Gallery image" class="h-20 w-20 object-cover rounded shadow" onerror="this.style.display='none'" />
                   <div class="flex-1">
                     <p class="text-xs text-gray-600 break-all mb-2"><%= img["url"] %></p>
-                    <select class="gallery-period-select w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm">
+                    <select class="gallery-period-select w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">
                       <% selected_period = img["class_period"].presence || "general" %>
                       <option value="general" <%= selected_period == "general" ? "selected" : "" %>>General</option>
                       <option value="concert" <%= selected_period == "concert" ? "selected" : "" %>>Concert</option>
@@ -207,7 +207,7 @@
                       <option value="competition" <%= selected_period == "competition" ? "selected" : "" %>>Competition</option>
                     </select>
                   </div>
-                  <button type="button" class="gallery-remove-btn px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition">✕</button>
+                  <button type="button" class="gallery-remove-btn px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition">✕</button>
                 </div>
               <% end %>
             </div>
@@ -263,14 +263,14 @@
                     '<img src="' + url + '" alt="Gallery image" class="h-20 w-20 object-cover rounded shadow" onerror="this.style.display=\'none\'" />' +
                     '<div class="flex-1">' +
                       '<p class="text-xs text-gray-600 break-all mb-2">' + url + '</p>' +
-                      '<select class="gallery-period-select w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-sm">' +
+                      '<select class="gallery-period-select w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm">' +
                         '<option value="general" selected>General</option>' +
                         '<option value="concert">Concert</option>' +
                         '<option value="rehearsal">Rehearsal</option>' +
                         '<option value="competition">Competition</option>' +
                       '</select>' +
                     '</div>' +
-                    '<button type="button" class="gallery-remove-btn px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition">✕</button>';
+                    '<button type="button" class="gallery-remove-btn px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition">✕</button>';
                   imagesList.appendChild(row);
                   wireRow(row);
                   updateHiddenField();
@@ -327,14 +327,14 @@
                 });
                 dropzone.addEventListener("dragover", function(event) {
                   event.preventDefault();
-                  dropzone.classList.add("border-purple-500", "bg-purple-50");
+                  dropzone.classList.add("border-blue-500", "bg-blue-50");
                 });
                 dropzone.addEventListener("dragleave", function() {
-                  dropzone.classList.remove("border-purple-500", "bg-purple-50");
+                  dropzone.classList.remove("border-blue-500", "bg-blue-50");
                 });
                 dropzone.addEventListener("drop", function(event) {
                   event.preventDefault();
-                  dropzone.classList.remove("border-purple-500", "bg-purple-50");
+                  dropzone.classList.remove("border-blue-500", "bg-blue-50");
                   processFiles(event.dataTransfer.files);
                 });
 
@@ -357,7 +357,7 @@
           <%= f.text_field attr,
               placeholder: image_field ? "Choose a stock image or paste a URL" : "https://example.com/image.jpg",
               list: (image_field ? datalist_id : nil),
-              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
 
           <% if image_field %>
             <datalist id="<%= datalist_id %>">
@@ -396,7 +396,7 @@
         <% else %>
           <%= f.text_field attr,
               placeholder: "Enter #{attr.to_s.humanize.downcase}...",
-              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition" %>
+              class: "w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 transition" %>
         <% end %>
       <% end %>
     </fieldset>
@@ -407,7 +407,7 @@
     <% label = resource.new_record? ? "✓ Create" : "✓ Update" %>
     <% resource_label = dashboard&.class&.name&.gsub(/Dashboard$/, '') || resource.class.model_name.singular %>
     <%= f.button "#{label} #{resource_label}", 
-        class: "px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold rounded-lg transition shadow-md" %>
+        class: "px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition shadow-md" %>
     
     <% cancel_path = dashboard ? send("admin_#{dashboard.class.name.gsub(/Dashboard$/, '').underscore.pluralize}_path") : admin_root_path %>
     <%= link_to "Cancel", cancel_path, 

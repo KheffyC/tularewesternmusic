@@ -11,14 +11,12 @@
 %>
 
 <section
-  class="relative h-[calc(100vh-88px)] overflow-hidden bg-black bg-cover bg-center bg-no-repeat sm:h-[calc(100vh-88px)] lg:h-[calc(100vh-104px)]"
+  class="relative h-[calc(100vh-88px)] overflow-hidden bg-blue-950 bg-cover bg-center bg-no-repeat sm:h-[calc(100vh-88px)] lg:h-[calc(100vh-104px)]"
   style="background-image: url('<%= hero_image %>');">
-  <div class="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/55"></div>
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.65)_72%)]"></div>
-
+  <div class="absolute inset-0 bg-blue-950/30"></div>
   <div class="relative z-10 mx-auto flex h-full w-full max-w-full items-center justify-center px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl px-2 py-8 text-center sm:px-4 sm:py-10 lg:py-14">
-      <h1 class="font-display text-4xl font-bold tracking-tight text-white [text-shadow:0_4px_22px_rgba(0,0,0,0.98)] sm:text-6xl lg:text-8xl">
+      <h1 class="font-display text-4xl font-bold tracking-tight text-red-900 [text-shadow:0_1px_0_rgba(255,255,255,0.95),0_-1px_0_rgba(255,255,255,0.95),1px_0_0_rgba(255,255,255,0.95),-1px_0_0_rgba(255,255,255,0.95),0_4px_22px_rgba(0,0,0,0.98)] sm:text-6xl lg:text-8xl">
         <%= local_assigns[:page_title] ? page_title : @school.hero_title %>
       </h1>
 

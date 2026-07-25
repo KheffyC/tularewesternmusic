@@ -1,62 +1,62 @@
 <%# Shared form partial for new and edit %>
 
 <div>
-  <%= form.label :title, 'Fundraiser Title', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-  <%= form.input :title, label: false, error: false, input_html: { class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 placeholder-slate-400 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" } %>
-  <%= form.error :title, class: 'mt-1 block text-sm text-purple-300' %>
+  <%= form.label :title, 'Fundraiser Title', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+  <%= form.input :title, label: false, error: false, input_html: { class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 placeholder-blue-400 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" } %>
+  <%= form.error :title, class: 'mt-1 block text-sm text-red-600' %>
 </div>
 
 <div>
-  <%= form.label :program_id, 'Program', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-  <%= form.collection_select :program_id, @programs, :id, :name, { include_blank: '-- Select Program --' }, { class: 'w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30' } %>
-  <%= form.error :program_id, class: 'mt-1 block text-sm text-purple-300' %>
+  <%= form.label :program_id, 'Program', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+  <%= form.collection_select :program_id, @programs, :id, :name, { include_blank: '-- Select Program --' }, { class: 'w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40' } %>
+  <%= form.error :program_id, class: 'mt-1 block text-sm text-red-600' %>
 </div>
 
 <div>
-  <%= form.label :description, 'Description', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-  <p class="mb-2 text-xs text-slate-400">Describe what this fundraiser is for and how the community can participate.</p>
-  <%= form.input :description, as: :text, label: false, error: false, input_html: { rows: 5, class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 placeholder-slate-400 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" } %>
-  <%= form.error :description, class: 'mt-1 block text-sm text-purple-300' %>
+  <%= form.label :description, 'Description', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+  <p class="mb-2 text-xs text-blue-900/70">Describe what this fundraiser is for and how the community can participate.</p>
+  <%= form.input :description, as: :text, label: false, error: false, input_html: { rows: 5, class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 placeholder-blue-400 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" } %>
+  <%= form.error :description, class: 'mt-1 block text-sm text-red-600' %>
 </div>
 
 <div>
-  <%= form.label :goal, 'Goal', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-  <p class="mb-2 text-xs text-slate-400">e.g. "$5,000 for new uniforms" or "500 items sold"</p>
-  <%= form.input :goal, label: false, error: false, input_html: { class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 placeholder-slate-400 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" } %>
+  <%= form.label :goal, 'Goal', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+  <p class="mb-2 text-xs text-blue-900/70">e.g. "$5,000 for new uniforms" or "500 items sold"</p>
+  <%= form.input :goal, label: false, error: false, input_html: { class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 placeholder-blue-400 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" } %>
 </div>
 
 <div>
-  <%= form.label :call_to_action, 'Call to Action', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-  <p class="mb-2 text-xs text-slate-400">A short action line shown prominently on the fundraiser — e.g. "Order by Dec 15!"</p>
-  <%= form.input :call_to_action, label: false, error: false, input_html: { class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 placeholder-slate-400 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" } %>
+  <%= form.label :call_to_action, 'Call to Action', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+  <p class="mb-2 text-xs text-blue-900/70">A short action line shown prominently on the fundraiser — e.g. "Order by Dec 15!"</p>
+  <%= form.input :call_to_action, label: false, error: false, input_html: { class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 placeholder-blue-400 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" } %>
 </div>
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
   <div>
-    <%= form.label :start_date, 'Start Date', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-    <%= form.date_field :start_date, class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" %>
+    <%= form.label :start_date, 'Start Date', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+    <%= form.date_field :start_date, class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" %>
   </div>
   <div>
-    <%= form.label :end_date, 'End Date', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
-    <%= form.date_field :end_date, class: "w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-slate-800 shadow-sm focus:border-white focus:outline-none focus:ring-2 focus:ring-white/30" %>
+    <%= form.label :end_date, 'End Date', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
+    <%= form.date_field :end_date, class: "w-full rounded-lg border border-blue-300 bg-white px-3 py-2.5 text-blue-900 shadow-sm focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300/40" %>
   </div>
 </div>
 
 <div>
-  <%= form.label :flyer, 'Fundraiser Flyer / Image', class: "block text-sm font-semibold uppercase tracking-wide text-slate-100 mb-2" %>
+  <%= form.label :flyer, 'Fundraiser Flyer / Image', class: "mb-2 block text-sm font-semibold uppercase tracking-wide text-blue-900" %>
   <div
     @dragover.prevent="isDragging = true"
     @dragenter.prevent="isDragging = true"
     @dragleave.prevent="isDragging = false"
     @drop.prevent="handleDrop($event)"
-    :class="isDragging ? 'border-white bg-white/95 ring-2 ring-white/70' : 'border-white/80 bg-white/95'"
+    :class="isDragging ? 'border-blue-600 bg-blue-50 ring-2 ring-blue-300/70' : 'border-blue-300 bg-white'"
     class="rounded-xl border-2 border-dashed p-5 transition"
   >
     <div class="flex flex-col items-center justify-center gap-3 text-center">
       <div>
-        <p class="text-sm font-semibold text-white">Drag and drop your flyer here</p>
-        <p class="text-xs text-white/90">or use the file picker below</p>
-        <p class="mt-2 text-xs font-medium text-white" x-show="selectedFileName" x-text="selectedFileName" x-cloak></p>
+        <p class="text-sm font-semibold text-blue-900">Drag and drop your flyer here</p>
+        <p class="text-xs text-blue-900/80">or use the file picker below</p>
+        <p class="mt-2 text-xs font-medium text-blue-900" x-show="selectedFileName" x-text="selectedFileName" x-cloak></p>
       </div>
       <%= form.file_field :flyer,
           accept: 'image/png,image/jpeg,image/jpg,image/webp,image/gif',
@@ -65,14 +65,14 @@
           x_ref: "flyerInput",
           "@change": "selectedFileName = $event.target.files?.[0]?.name || ''"
       %>
-      <label for="fundraiser_flyer" class="inline-flex cursor-pointer items-center justify-center rounded-lg bg-sky-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-sky-500">Choose Image</label>
-      <p class="text-xs font-medium text-white" x-text="selectedFileName || 'No file chosen'"></p>
+      <label for="fundraiser_flyer" class="inline-flex cursor-pointer items-center justify-center rounded-lg border border-red-400 bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600">Choose Image</label>
+      <p class="text-xs font-medium text-blue-900" x-text="selectedFileName || 'No file chosen'"></p>
     </div>
   </div>
   <% if form.object.flyer.attached? %>
     <div class="mt-3 flex items-center gap-3">
-      <%= image_tag form.object.flyer, class: "h-20 w-auto rounded-lg border border-white/20 object-cover" %>
-      <p class="text-xs text-slate-300">Current flyer — upload a new one to replace it.</p>
+      <%= image_tag form.object.flyer, class: "h-20 w-auto rounded-lg border border-blue-300 object-cover" %>
+      <p class="text-xs text-blue-900/70">Current flyer — upload a new one to replace it.</p>
     </div>
   <% end %>
 </div>

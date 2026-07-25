@@ -5,7 +5,7 @@
 # 	abort "db:seed is restricted to development for this dataset. Current env: #{Rails.env}"
 # end
 
-puts "Seeding Mission Oak Music Department development data..."
+puts "Seeding Tulare Western Music Department development data..."
 
 district = District.find_or_create_by!(name: "Tulare Joint Union High School District")
 district.update!(
@@ -14,25 +14,25 @@ district.update!(
 	description: "Public high school district serving the greater Tulare area."
 )
 
-school = School.find_or_create_by!(name: "Mission Oak")
+school = School.find_or_create_by!(name: "Tulare Western")
 school.update!(
 	district: district,
 	city: "Tulare",
 	state: "CA",
 	established: Date.new(1890, 1, 1),
-	description: "Home of the Mission Oak Music Department.",
-	hero_title: "Mission Oak Music Department",
+	description: "Home of the Tulare Western Music Department.",
+	hero_title: "Tulare Western Music Department",
 	call_to_action: "Support our students through events, donations, and volunteer service.",
 	contact_us: "Questions? Reach us through the directors listed below.",
-	about: "The Mission Oak music program supports concert, marching, jazz, percussion, and color guard students year-round.",
+	about: "The Tulare Western music program supports concert, marching, jazz, percussion, and color guard students year-round.",
 	home_page_image_urls: "https://images.unsplash.com/photo-1511192336575-5a79af67a629,https://images.unsplash.com/photo-1458560871784-56d23406c091,https://images.unsplash.com/photo-1507838153414-b4b713384a76",
 	calendar_url: "https://calendar.google.com",
-	director_name: "Deolinda Barcellos",
+	director_name: "Michael Reynolds",
 	director_phone: "(559) 555-0102",
-	director_email: "deolinda.barcellos@missionoakmusic.org",
-	percussion_director_name: "Jordan Lee",
-	percussion_director_phone: "(559) 555-0101",
-	percussion_director_email: "percussion@missionoakmusic.org",
+	director_email: "michael.reynolds@tulare.k12.ca.us",
+	percussion_director_name: "",
+	percussion_director_phone: "",
+	percussion_director_email: "",
 	default_image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6",
 	performance_absence_form: "https://example.org/forms/performance-absence",
 	rehearsal_absence_form: "https://example.org/forms/rehearsal-absence",

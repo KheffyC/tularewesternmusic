@@ -1,14 +1,14 @@
 <%= render 'home/hero', program: @program, page_title: @program.short_name, page_hero_title: @program.hero_title %>
 
-<section class="w-full bg-neutral-950 px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+<section class="w-full bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
   <div class="mx-auto w-[94%] sm:w-[90%] lg:w-[80%]">
     <div class="mb-10 text-center sm:mb-14">
-      <h2 class="section-title text-white">About The Program</h2>
-      <p class="section-subtitle mx-auto max-w-3xl text-white/70"><%= @program.hero_title %></p>
+      <h2 class="section-title text-blue-900">About The Program</h2>
+      <p class="section-subtitle mx-auto max-w-3xl text-slate-600"><%= @program.hero_title %></p>
     </div>
 
     <div class="grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
-      <article class="overflow-hidden bg-neutral-900 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
+      <article class="overflow-hidden bg-blue-950 shadow-[0_14px_30px_rgba(30,58,138,0.35)]">
         <div class="p-6 sm:p-8 lg:p-10">
           <span class="inline-flex rounded-full bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
             Program Overview
@@ -36,7 +36,7 @@
         </div>
       </article>
 
-      <article class="group relative overflow-hidden bg-black shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
+      <article class="group relative overflow-hidden bg-blue-950 shadow-[0_14px_30px_rgba(30,58,138,0.35)]">
         <div class="h-80 w-full overflow-hidden sm:h-[420px] lg:h-[460px]">
           <% program_image = @program.about_image_url.to_s.strip.presence || @program.main_gallery_image_url.to_s.strip.presence || @school.default_image.to_s.strip.presence || 'default-hero.jpg' %>
           <%= image_tag(
@@ -45,7 +45,7 @@
             class: 'h-full w-full object-cover transition duration-500 group-hover:scale-105'
           ) %>
         </div>
-        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-blue-950/80 via-blue-900/20 to-transparent"></div>
       </article>
     </div>
   </div>
@@ -102,7 +102,7 @@
         <div class="mt-4 border border-gray-200 bg-gray-50 p-3">
           <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-500">Quick Actions</p>
           <div class="mt-2 grid grid-cols-1 gap-2">
-            <%= link_to 'Contact Directors', contacts_path, class: 'block border border-white bg-purple-700 px-3 py-2 text-center text-xs font-semibold text-white transition hover:bg-purple-600' %>
+            <%= link_to 'Contact Directors', contacts_path, class: 'block border border-white bg-blue-700 px-3 py-2 text-center text-xs font-semibold text-white transition hover:bg-blue-600' %>
             <%= link_to 'Support Fundraising', fundraisers_path, class: 'block border border-gray-300 px-3 py-2 text-center text-xs font-semibold text-gray-700 transition hover:border-gray-500 hover:text-gray-900' %>
           </div>
         </div>
@@ -113,8 +113,8 @@
             x-data="{ fileName: '', docName: '', onFile(e) { const file = e.target.files[0]; if (!file) return; this.fileName = file.name; if (!this.docName) { this.docName = file.name.replace(/\.pdf$/i, '').replace(/[_-]+/g, ' '); } }, onDrop(e) { e.preventDefault(); const files = e.dataTransfer.files; if (!files.length) return; this.$refs.fileInput.files = files; this.onFile({ target: { files: files } }); } }"
           >
             <div class="flex items-center justify-between gap-2">
-              <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-white">Director Upload</p>
-              <%= link_to '+ Add Program Documents', new_amazon_pdf_path(program_id: @program.id), class: 'text-[11px] font-semibold text-white underline decoration-white underline-offset-2 hover:text-emerald-600' %>
+              <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-900">Director Upload</p>
+              <%= link_to '+ Add Program Documents', new_amazon_pdf_path(program_id: @program.id), class: 'text-[11px] font-semibold text-blue-700 underline decoration-blue-300 underline-offset-2 hover:text-red-600' %>
             </div>
 
             <%= form_with url: amazon_pdfs_path, scope: :amazon_pdf, local: true, html: { multipart: true, class: 'mt-3 space-y-3' } do |form| %>
@@ -124,12 +124,12 @@
               <%= form.hidden_field :return_to, value: program_path(@program) %>
 
               <label
-                class="flex cursor-pointer flex-col items-center justify-center border border-dashed border-white bg-white/70 px-3 py-4 text-center"
+                class="flex cursor-pointer flex-col items-center justify-center border border-dashed border-blue-200 bg-blue-50 px-3 py-4 text-center"
                 @dragover.prevent
                 @drop="onDrop($event)"
                 @click="$refs.fileInput.click()"
               >
-                <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-white">Drop PDF Here</span>
+                <span class="text-[11px] font-semibold uppercase tracking-[0.16em] text-blue-900">Drop PDF Here</span>
                 <span class="mt-1 text-xs text-gray-700" x-text="fileName || 'or click to choose a file'"></span>
               </label>
 
@@ -137,10 +137,10 @@
 
               <div>
                 <%= form.label :name, 'Document Name', class: 'block text-xs font-semibold uppercase tracking-[0.16em] text-gray-700' %>
-                <%= form.text_field :name, class: 'mt-1 w-full border border-white bg-white px-3 py-2 text-sm text-gray-900', placeholder: 'e.g. October Rehearsal Schedule', 'x-model': 'docName' %>
+                <%= form.text_field :name, class: 'mt-1 w-full border border-blue-200 bg-white px-3 py-2 text-sm text-gray-900', placeholder: 'e.g. October Rehearsal Schedule', 'x-model': 'docName' %>
               </div>
 
-              <%= form.submit 'Upload to This Program', class: 'w-full bg-purple-700 px-3 py-2 text-sm font-semibold text-white transition hover:bg-purple-800' %>
+              <%= form.submit 'Upload to This Program', class: 'w-full bg-blue-700 px-3 py-2 text-sm font-semibold text-white transition hover:bg-blue-800' %>
             <% end %>
           </div>
         <% end %>
@@ -148,10 +148,10 @@
         <% if @program.amazon_pdfs.present? %>
           <div class="mt-4 space-y-3">
             <% @program.amazon_pdfs.each do |pdf| %>
-              <div class="space-y-4 border border-purple-300 bg-gradient-to-r from-purple-50 to-white p-3 shadow-[0_8px_18px_rgba(127,29,29,0.12)]">
-                <%= link_to pdf.name, pdf&.url, target: '_blank', class: 'block bg-purple-700 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-purple-800 sm:text-sm' %>
+              <div class="space-y-4 border border-blue-300 bg-gradient-to-r from-blue-50 to-white p-3 shadow-[0_8px_18px_rgba(127,29,29,0.12)]">
+                <%= link_to pdf.name, pdf&.url, target: '_blank', class: 'block bg-blue-700 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-blue-800 sm:text-sm' %>
                 <% if current_director.present? %>
-                  <%= link_to "Delete #{pdf.name}", amazon_pdf_path(pdf.id), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: 'block mt-2 border border-white bg-purple-700 px-3 py-1.5 text-center text-xs font-semibold text-white transition hover:bg-purple-600' %>
+                  <%= link_to "Delete #{pdf.name}", amazon_pdf_path(pdf.id), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }, class: 'block mt-2 border border-red-300 bg-red-600 px-3 py-1.5 text-center text-xs font-semibold text-white transition hover:bg-red-500' %>
                 <% end %>
               </div>
             <% end %>
@@ -164,10 +164,10 @@
   </div>
 </section>
 
-<section class="w-full bg-neutral-950 px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+<section class="w-full bg-white px-4 py-16 text-center sm:px-6 sm:py-20 lg:px-8 lg:py-24">
   <div class="mx-auto w-[94%] sm:w-[90%] lg:w-[80%]">
-    <h2 class="section-title text-white">Stay Connected</h2>
-    <p class="section-subtitle text-white/70">
+    <h2 class="section-title text-blue-900">Stay Connected</h2>
+    <p class="section-subtitle text-slate-600">
       Follow the <%= @program.short_name %> at <%= @program.ig_handle.presence || '@tuhsinstrumentalmusic' %>
       <% if @program.circuit.present? %>
         and catch us around the Central Valley in <%= @program.circuit %> competitions.

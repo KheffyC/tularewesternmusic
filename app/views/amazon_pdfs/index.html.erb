@@ -1,39 +1,39 @@
-<section class="min-h-screen bg-neutral-950 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+<section class="min-h-screen bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
   <div class="mx-auto w-full max-w-7xl">
-    <div class="rounded-3xl border-2 border-purple-600 bg-white px-6 py-8 shadow-[0_20px_60px_rgba(88,28,135,0.25)] sm:px-8 lg:px-10">
+    <div class="rounded-3xl border-2 border-blue-500 bg-blue-50 px-6 py-8 shadow-[0_20px_60px_rgba(30,64,175,0.25)] sm:px-8 lg:px-10">
       <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
         <div class="max-w-3xl">
-          <span class="inline-flex rounded-full border border-purple-300 bg-purple-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-700">PDF Library</span>
-          <h1 class="mt-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">Live Documents and Program Info</h1>
+          <span class="inline-flex rounded-full border border-red-300 bg-blue-50 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-700">PDF Library</span>
+          <h1 class="mt-4 text-4xl font-bold tracking-tight text-blue-900 [text-shadow:0_1px_0_rgba(220,38,38,0.9),0_-1px_0_rgba(220,38,38,0.9),1px_0_0_rgba(220,38,38,0.9),-1px_0_0_rgba(220,38,38,0.9)] sm:text-5xl lg:text-6xl">Live Documents and Program Info</h1>
           <p class="mt-4 max-w-2xl text-base leading-relaxed text-gray-700 sm:text-lg">
             This page is the main source for schedules, itineraries, syllabus updates, and the latest event information students need as the season changes.
           </p>
         </div>
 
         <div class="grid gap-3 sm:grid-cols-2 lg:min-w-[360px] lg:grid-cols-1">
-          <%= link_to 'Student Forms', student_forms_amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-white bg-purple-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-200 hover:text-purple-700 hover:border-purple-700' %>
+          <%= link_to 'Student Forms', student_forms_amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-red-400 bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-200 hover:text-blue-700 hover:border-red-400' %>
           <% if current_director.present? %>
-            <%= link_to 'Upload New PDF', new_amazon_pdf_path, class: 'inline-flex items-center justify-center rounded-xl border border-purple-600 bg-white px-5 py-3 text-sm font-semibold text-purple-700 shadow-sm transition hover:border-emerald-600 hover:bg-emerald-600 hover:text-white' %>
+            <%= link_to 'Upload New PDF', new_amazon_pdf_path, class: 'inline-flex items-center justify-center rounded-xl border border-red-400 bg-white px-5 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-red-400 hover:bg-emerald-600 hover:text-white' %>
           <% end %>
         </div>
       </div>
 
       <div class="mt-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div class="flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-gray-700">
-          <%= link_to 'All Documents', amazon_pdfs_path(program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-purple-600 bg-purple-50 text-purple-800' if @selected_group.blank?} #{'border-purple-200 bg-white text-purple-700 hover:bg-purple-50' if @selected_group.present?}" %>
-          <%= link_to 'Itineraries', amazon_pdfs_path(group: 'Itinerary', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-purple-600 bg-purple-50 text-purple-800' if @selected_group == 'Itinerary'} #{'border-purple-200 bg-white text-purple-700 hover:bg-purple-50' if @selected_group != 'Itinerary'}" %>
-          <%= link_to 'Schedules', amazon_pdfs_path(group: 'Schedules', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-purple-600 bg-purple-50 text-purple-800' if @selected_group == 'Schedules'} #{'border-purple-200 bg-white text-purple-700 hover:bg-purple-50' if @selected_group != 'Schedules'}" %>
-          <%= link_to 'Department Handbook', amazon_pdfs_path(group: 'Department Handbook', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-purple-600 bg-purple-50 text-purple-800' if @selected_group == 'Department Handbook'} #{'border-purple-200 bg-white text-purple-700 hover:bg-purple-50' if @selected_group != 'Department Handbook'}" %>
-          <%= link_to 'Syllabuses', amazon_pdfs_path(group: 'Syllabus', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-purple-600 bg-purple-50 text-purple-800' if @selected_group == 'Syllabus'} #{'border-purple-200 bg-white text-purple-700 hover:bg-purple-50' if @selected_group != 'Syllabus'}" %>
+          <%= link_to 'All Documents', amazon_pdfs_path(program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-red-400 bg-blue-900 text-white' if @selected_group.blank?} #{'border-red-400 bg-white text-blue-700 hover:bg-blue-50' if @selected_group.present?}" %>
+          <%= link_to 'Itineraries', amazon_pdfs_path(group: 'Itinerary', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-red-400 bg-blue-900 text-white' if @selected_group == 'Itinerary'} #{'border-red-400 bg-white text-blue-700 hover:bg-blue-50' if @selected_group != 'Itinerary'}" %>
+          <%= link_to 'Schedules', amazon_pdfs_path(group: 'Schedules', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-red-400 bg-blue-900 text-white' if @selected_group == 'Schedules'} #{'border-red-400 bg-white text-blue-700 hover:bg-blue-50' if @selected_group != 'Schedules'}" %>
+          <%= link_to 'Department Handbook', amazon_pdfs_path(group: 'Department Handbook', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-red-400 bg-blue-900 text-white' if @selected_group == 'Department Handbook'} #{'border-red-400 bg-white text-blue-700 hover:bg-blue-50' if @selected_group != 'Department Handbook'}" %>
+          <%= link_to 'Syllabuses', amazon_pdfs_path(group: 'Syllabus', program_id: @selected_program_id), class: "rounded-full border px-3 py-1 transition #{'border-red-400 bg-blue-900 text-white' if @selected_group == 'Syllabus'} #{'border-red-400 bg-white text-blue-700 hover:bg-blue-50' if @selected_group != 'Syllabus'}" %>
         </div>
 
         <%= form_with url: amazon_pdfs_path, method: :get, class: 'flex w-full max-w-sm flex-col gap-2 lg:w-auto', local: true do |form| %>
           <%= form.hidden_field :group, value: @selected_group if @selected_group.present? %>
           <%= form.label :program_id, 'Program name', class: 'text-xs font-semibold uppercase tracking-[0.18em] text-gray-700' %>
           <div class="flex gap-2">
-            <%= form.select :program_id, options_from_collection_for_select(@programs, :id, :short_name, @selected_program_id), { include_blank: 'All Programs' }, { class: 'w-full rounded-xl border border-purple-300 bg-white px-4 py-3 text-sm font-semibold text-gray-900 transition focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-300/40', onchange: 'this.form.requestSubmit()' } %>
+            <%= form.select :program_id, options_from_collection_for_select(@programs, :id, :short_name, @selected_program_id), { include_blank: 'All Programs' }, { class: 'w-full rounded-xl border border-red-400 bg-white px-4 py-3 text-sm font-semibold text-gray-900 transition focus:border-red-400 focus:outline-none focus:ring-2 focus:ring-blue-300/40', onchange: 'this.form.requestSubmit()' } %>
             <% if @selected_program_id.present? || @selected_group.present? %>
-              <%= link_to 'Clear', amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-purple-300 bg-white px-4 py-3 text-sm font-semibold text-purple-700 transition hover:bg-purple-50' %>
+              <%= link_to 'Clear', amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-red-400 bg-white px-4 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-50' %>
             <% end %>
           </div>
         <% end %>
@@ -43,8 +43,8 @@
     <% if @amazon_pdfs.present? %>
       <div id="documents" class="mt-8 space-y-8">
         <% @ordered_pdfs.each do |group, pdfs| %>
-          <section class="overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-[0_18px_45px_rgba(0,0,0,0.3)] backdrop-blur-sm">
-            <div class="flex items-center justify-between gap-4 border-b border-white/10 px-6 py-4 sm:px-8">
+          <section class="overflow-hidden rounded-3xl border border-red-400 bg-blue-900 shadow-[0_18px_45px_rgba(30,58,138,0.3)] backdrop-blur-sm">
+            <div class="flex items-center justify-between gap-4 border-b-2 border-red-400 px-6 py-4 sm:px-8">
               <div>
                 <h2 class="text-2xl font-bold uppercase tracking-[0.16em] text-white sm:text-3xl"><%= group %></h2>
                 <p class="mt-1 text-sm text-white/60"><%= pluralize(pdfs.size, 'document') %></p>
@@ -53,8 +53,8 @@
 
             <div class="grid gap-4 p-4 sm:grid-cols-2 sm:p-6 xl:grid-cols-3">
               <% pdfs.each do |pdf| %>
-                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-neutral-900 shadow-[0_12px_26px_rgba(0,0,0,0.28)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(0,0,0,0.38)]">
-                  <div class="border-b border-white/10 bg-gradient-to-r from-purple-800 via-purple-700 to-white px-5 py-4">
+                <article class="group flex h-full flex-col overflow-hidden rounded-2xl border border-red-400 bg-white shadow-[0_12px_26px_rgba(30,58,138,0.28)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(30,58,138,0.38)]">
+                  <div class="border-b border-red-400 bg-blue-900 px-5 py-4">
                     <div class="flex items-start gap-4">
                       <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/15 ring-1 ring-white/20">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white">
@@ -67,7 +67,7 @@
                           <%= pdf.event_date ? pdf.event_date.strftime('%B %d, %Y') : 'No event date' %>
                         </p>
                         <% if pdf.program.present? %>
-                          <p class="mt-2 inline-flex rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
+                          <p class="mt-2 inline-flex rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
                             <%= pdf.program.short_name.presence || pdf.program.name %>
                           </p>
                         <% end %>
@@ -79,12 +79,12 @@
                     <div class="space-y-3">
                       <div class="flex flex-wrap items-center gap-2">
                         <% if pdf.linked_document? %>
-                          <span class="inline-flex rounded-full border border-emerald-300/40 bg-emerald-500/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-200">Google Doc</span>
+                          <span class="inline-flex rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-700">Google Doc</span>
                         <% else %>
-                          <span class="inline-flex rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/70">PDF</span>
+                          <span class="inline-flex rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-700">PDF</span>
                         <% end %>
                       </div>
-                      <%= link_to pdf.url, target: '_blank', class: 'inline-flex items-center gap-2 rounded-xl border border-white/40 bg-white px-4 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-white' do %>
+                      <%= link_to pdf.url, target: '_blank', class: 'inline-flex items-center gap-2 rounded-xl border border-red-400 bg-white px-4 py-3 text-sm font-semibold text-neutral-950 transition hover:bg-white' do %>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4">
                           <path d="M10 3.75c-4.556 0-8.26 3.07-9.5 7.25 1.24 4.18 4.944 7.25 9.5 7.25s8.26-3.07 9.5-7.25c-1.24-4.18-4.944-7.25-9.5-7.25zM10 15a3.5 3.5 0 110-7 3.5 3.5 0 010 7z" />
                         </svg>
@@ -94,8 +94,8 @@
 
                     <% if current_director.present? %>
                       <div class="grid gap-2 sm:grid-cols-2">
-                        <%= link_to 'Edit PDF', edit_amazon_pdf_path(pdf.id), class: 'inline-flex items-center justify-center rounded-lg border border-cyan-400/30 bg-cyan-500/10 px-3 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-500/20' %>
-                        <%= link_to 'Delete', amazon_pdf_path(pdf.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to remove this PDF?' }, class: 'inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-white transition hover:bg-neutral-800 hover:text-white' %>
+                        <%= link_to 'Edit PDF', edit_amazon_pdf_path(pdf.id), class: 'inline-flex items-center justify-center rounded-lg border border-cyan-300 bg-cyan-50 px-3 py-2 text-sm font-semibold text-cyan-800 transition hover:bg-cyan-100' %>
+                        <%= link_to 'Delete', amazon_pdf_path(pdf.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to remove this PDF?' }, class: 'inline-flex items-center justify-center rounded-lg border border-red-400 bg-red-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-500' %>
                       </div>
                     <% end %>
                   </div>
@@ -106,7 +106,7 @@
         <% end %>
       </div>
     <% else %>
-      <div class="mt-8 flex min-h-[50vh] flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 px-6 text-center shadow-[0_18px_45px_rgba(0,0,0,0.3)]">
+      <div class="mt-8 flex min-h-[50vh] flex-col items-center justify-center rounded-3xl border border-red-400 bg-blue-950 px-6 text-center shadow-[0_18px_45px_rgba(30,58,138,0.3)]">
         <h2 class="text-4xl font-bold text-white">
           <%= if @selected_group.present? && @selected_program.present?
                 "No #{@selected_group} Documents Posted for #{@selected_program.short_name.presence || @selected_program.name}"
@@ -127,8 +127,8 @@
         </p>
         <% if current_director.present? %>
           <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-            <%= link_to 'Upload New PDF', new_amazon_pdf_path, class: 'inline-flex items-center justify-center rounded-xl border border-purple-600 bg-white px-5 py-3 text-sm font-semibold text-purple-700 transition hover:border-emerald-600 hover:bg-emerald-600 hover:text-white' %>
-            <%= link_to 'View Student Forms', student_forms_amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10' %>
+            <%= link_to 'Upload New PDF', new_amazon_pdf_path, class: 'inline-flex items-center justify-center rounded-xl border border-red-400 bg-white px-5 py-3 text-sm font-semibold text-blue-700 transition hover:border-red-400 hover:bg-emerald-600 hover:text-white' %>
+            <%= link_to 'View Student Forms', student_forms_amazon_pdfs_path, class: 'inline-flex items-center justify-center rounded-xl border border-red-400 bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-500' %>
           </div>
         <% end %>
       </div>

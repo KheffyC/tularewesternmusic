@@ -24,7 +24,7 @@ default: &default
 development:
   <<: *default
   host: db
-  database: missionoak_music_dept_development
+  database: tularewestern_music_dept_development
   username: postgres
   password: postgres
 
@@ -61,7 +61,7 @@ development:
 test:
   <<: *default
   host: db
-  database: missionoak_music_dept_test
+  database: tularewestern_music_dept_test
   username: postgres
   password: postgres
 
@@ -88,6 +88,6 @@ test:
 production:
   <<: *default
   host: db
-  database: missionoak_music_dept_production
+  database: tularewestern_music_dept_production
   username: postgres
   password: postgres
