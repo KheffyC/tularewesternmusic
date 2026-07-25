@@ -33,7 +33,7 @@
   </div>
 
   <div class="border-t border-neutral-800 px-6 py-4 text-center text-xs text-white">
-    <span>© <%= Time.current.year %> <%= @school.name || '' %> Music Department</span>
+    <span>© <%= Time.current.year %> <%= @school.name || '' %> Music Department</span> |
     <span>Site created by <%= link_to 'KnownReference', 'https://knownreference.com', target: '_blank', rel: 'noopener noreferrer', class: 'font-semibold text-neutral-300 transition hover:text-white' %></span>
     <span class="mx-2">|</span>
     <% if current_director.present? %>
