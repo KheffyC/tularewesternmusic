@@ -7,6 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_director!
+    before_action :set_school
     helper ApplicationHelper
     helper_method :donations_enabled?, :stripe_pricing_table_ready?, :stripe_buy_button_ready?
     
@@ -23,6 +24,10 @@ module Admin
 
     def donations_enabled?
       stripe_pricing_table_ready? || stripe_buy_button_ready?
+    end
+
+    def set_school
+      @school = School.first
     end
 
     def stripe_pricing_table_ready?

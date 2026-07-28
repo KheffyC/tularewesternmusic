@@ -1,45 +1,43 @@
 <footer class="border-t-2 border-red-500 text-white" style="background-color: rgb(30, 58, 138); background-image: radial-gradient(140% 220% at 50% -120%, rgba(37, 99, 235, 0.96) 0%, rgba(30, 64, 175, 0.94) 44%, rgba(30, 58, 138, 1) 80%), radial-gradient(90% 160% at 88% 110%, rgba(220, 38, 38, 0.28) 0%, rgba(220, 38, 38, 0) 62%);">
-  <div class="mx-auto w-full max-w-7xl px-6 py-12 sm:px-10 lg:px-14">
-    <div class="grid items-start gap-10 text-center md:grid-cols-3 md:gap-16 md:text-left lg:gap-20">
-      <div class="mx-auto w-full max-w-sm md:max-w-none">
-        <h6 class="text-sm font-semibold uppercase tracking-[0.2em] text-white"><%= @school.name || ''%> Music Department</h6>
+  <div class="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-10">
+    <div class="flex flex-col gap-6 text-center sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:text-left">
+      <div class="w-full sm:max-w-[30%]">
+        <h6 class="text-xs font-semibold uppercase tracking-[0.2em] text-white"><%= @school.name || ''%> Music Department</h6>
+        <div class="mt-3 space-y-1 text-[11px] text-neutral-200">
+          <p>© <%= Time.current.year %> <%= @school.name || '' %> Music Department</p>
+          <p>Site created by <%= link_to 'KnownReference', 'https://knownreference.com', target: '_blank', rel: 'noopener noreferrer', class: 'font-semibold text-neutral-300 transition hover:text-white' %></p>
+        </div>
         <% if current_director.present? %>
-          <div class="mt-5">
-            <%= link_to "Sign out (#{current_director.email})", destroy_director_session_path, data: { turbo_method: :delete }, class: 'inline-flex rounded-md border border-neutral-700 px-3 py-2 text-xs font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900' %>
+          <div class="mt-3">
+            <%= link_to "Sign out (#{current_director.email})", destroy_director_session_path, data: { turbo_method: :delete }, class: 'inline-flex rounded-md border border-neutral-700 px-3 py-1.5 text-[11px] font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900' %>
           </div>
         <% end %>
       </div>
 
-      <div class="mx-auto text-center w-full max-w-sm md:max-w-none">
-        <h6 class="text-sm font-semibold uppercase tracking-[0.2em] text-white">Explore</h6>
-        <ul class="mt-3 space-y-2 text-sm text-white ">
+      <div class="w-full sm:max-w-[30%]">
+        <h6 class="text-xs font-semibold uppercase tracking-[0.2em] text-white">Explore</h6>
+        <ul class="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1 text-sm text-white sm:justify-start">
           <li><%= link_to 'Calendar', '/#main-calendar', class: 'transition hover:text-white' %></li>
-          <li><%= link_to 'Programs', '/#main-programs', class: 'transition hover:text-white' %></li>
+          <li><%= link_to 'Documents', amazon_pdfs_path, class: 'transition hover:text-white' %></li>
           <li><%= link_to 'About', home_about_path, class: 'transition hover:text-white' %></li>
           <li><%= link_to 'Contact', contacts_path, class: 'transition hover:text-white' %></li>
         </ul>
       </div>
 
-      <div class="mx-auto w-full max-w-sm md:max-w-none">
-        <h6 class="text-sm font-semibold uppercase tracking-[0.2em] text-white">Support</h6>
-        <div class="mt-3 flex flex-col gap-2">
+      <div class="w-full sm:max-w-[30%]">
+        <h6 class="text-xs font-semibold uppercase tracking-[0.2em] text-white">Support</h6>
+        <div class="mt-2 flex flex-wrap justify-center gap-2 sm:justify-start">
           <% if donations_enabled? %>
-            <%= link_to 'Donate', donations_path, class: 'inline-flex items-center justify-center rounded-md bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500 md:justify-start' %>
+            <%= link_to 'Donate', donations_path, class: 'inline-flex items-center justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm font-semibold text-white transition hover:bg-red-500' %>
           <% end %>
-          <%= link_to 'Fundraisers', fundraisers_path, class: 'inline-flex items-center justify-center rounded-md border border-neutral-700 px-4 py-2 text-sm font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900 md:justify-start' %>
+          <%= link_to 'Fundraisers', fundraisers_path, class: 'inline-flex items-center justify-center rounded-md border border-neutral-700 px-3 py-1.5 text-sm font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900' %>
+          <% if current_director.present? %>
+            <%= link_to 'Admin Dashboard', admin_root_path, class: 'inline-flex items-center justify-center rounded-md border border-neutral-700 px-3 py-1.5 text-sm font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900' %>
+          <% else %>
+            <%= link_to 'Director Login', new_director_session_path, class: 'inline-flex items-center justify-center rounded-md border border-neutral-700 px-3 py-1.5 text-sm font-semibold text-neutral-100 transition hover:border-neutral-500 hover:bg-neutral-900' %>
+          <% end %>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="border-t border-neutral-800 px-6 py-4 text-center text-xs text-white">
-    <span>© <%= Time.current.year %> <%= @school.name || '' %> Music Department</span> |
-    <span>Site created by <%= link_to 'KnownReference', 'https://knownreference.com', target: '_blank', rel: 'noopener noreferrer', class: 'font-semibold text-neutral-300 transition hover:text-white' %></span>
-    <span class="mx-2">|</span>
-    <% if current_director.present? %>
-      <%= link_to 'Go to Admin Dashboard', admin_root_path, class: 'font-semibold text-neutral-300 transition hover:text-white' %>
-    <% else %>
-      <%= link_to 'Director Login', new_director_session_path, class: 'font-semibold text-neutral-300 transition hover:text-white' %>
-    <% end %>
   </div>
 </footer>

@@ -5,6 +5,7 @@
 #  id                        :bigint           not null, primary key
 #  about                     :string
 #  about_hero_image          :string
+#  boosters_enabled          :boolean          default(FALSE), not null
 #  calendar_url              :string
 #  call_to_action            :string
 #  city                      :string
@@ -16,6 +17,7 @@
 #  director_phone            :string(255)
 #  district                  :string
 #  established               :date
+#  fundraisers_enabled       :boolean          default(FALSE), not null
 #  handbook_contract_form    :string
 #  hero_title                :string(100)
 #  home_page_image_urls      :string
@@ -24,7 +26,9 @@
 #  percussion_director_name  :string(255)
 #  percussion_director_phone :string(255)
 #  performance_absence_form  :string
+#  photo_gallery_enabled     :boolean          default(FALSE), not null
 #  rehearsal_absence_form    :string
+#  staff_enabled             :boolean          default(FALSE), not null
 #  state                     :string
 #  created_at                :datetime         not null
 #  updated_at                :datetime         not null
@@ -44,6 +48,7 @@ class School < ApplicationRecord
   has_many :programs, dependent: :destroy
   has_many :boosters, dependent: :destroy
   has_many :galleries, dependent: :destroy
+  has_many :staff_members, dependent: :destroy
 
   has_many_attached :pdf_uploads
 

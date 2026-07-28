@@ -21,6 +21,16 @@
     
     <%= link_to "Galleries", admin_galleries_path, 
         class: "block px-4 py-3 rounded-lg font-semibold transition #{request.path.start_with?(admin_galleries_path) ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' : 'text-gray-700 hover:bg-gray-100'}" %>
+
+    <% if @school&.staff_enabled? %>
+      <%= link_to "Staff", admin_staff_members_path,
+          class: "block px-4 py-3 rounded-lg font-semibold transition #{request.path.start_with?(admin_staff_members_path) ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' : 'text-gray-700 hover:bg-gray-100'}" %>
+    <% end %>
+
+    <% if @school&.boosters_enabled? %>
+      <%= link_to "Boosters", admin_boosters_path,
+          class: "block px-4 py-3 rounded-lg font-semibold transition #{request.path.start_with?(admin_boosters_path) ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white' : 'text-gray-700 hover:bg-gray-100'}" %>
+    <% end %>
   </div>
 
   <!-- Bottom section with logout -->

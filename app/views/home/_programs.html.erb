@@ -1,8 +1,11 @@
-<section class="w-full bg-white px-4 pt-16 pb-0 sm:px-6 sm:pt-20 sm:pb-0 lg:px-8 lg:pt-24 lg:pb-0">
+<section class="w-full bg-gray-100 px-4 pt-16 pb-0 sm:px-6 sm:pt-20 sm:pb-0 lg:px-8 lg:pt-24 lg:pb-0">
   <% if programs.present? %>
     <div class="mx-auto mb-6 w-[94%] text-center sm:mb-8 sm:w-[90%] lg:w-[80%]">
       <h2 class="section-title text-blue-900 [text-shadow:0_1px_0_rgba(220,38,38,0.9),0_-1px_0_rgba(220,38,38,0.9),1px_0_0_rgba(220,38,38,0.9),-1px_0_0_rgba(220,38,38,0.9)]">View Our Programs</h2>
       <p class="section-subtitle text-slate-600">See Class Schedule to read more details</p>
+      <a href="#" class="mt-4 inline-flex items-center justify-center rounded-full border border-red-500 bg-blue-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-800">
+        View Class Schedule
+      </a>
     </div>
 
     <% program_list = programs.to_a %>
@@ -10,7 +13,7 @@
       <% [program_list.first(4), program_list.drop(4)].each_with_index do |row_programs, row_index| %>
         <div class="mx-auto grid w-[94%] grid-cols-1 gap-4 sm:w-[90%] sm:grid-cols-2 lg:gap-6 <%= row_index.zero? ? 'lg:w-[80%] lg:grid-cols-4' : 'lg:w-[60%] lg:grid-cols-3' %> <%= row_index.zero? ? '' : 'mt-6' %>">
           <% row_programs.each do |program| %>
-            <%= link_to program_path(program.id), class: 'group block' do %>
+            <div class="group block">
               <article class="relative overflow-hidden rounded-2xl border border-red-500 bg-blue-950 transition duration-300 group-hover:-translate-y-1">
                 <div class="aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-[5/4]">
                   <%= image_tag(
@@ -31,14 +34,14 @@
                   <h3 class="mt-2 text-xl font-semibold text-white sm:text-2xl"><%= program.hero_title %></h3>
                 </div>
               </article>
-            <% end %>
+            </div>
           <% end %>
         </div>
       <% end %>
     <% else %>
       <div class="mx-auto grid w-[94%] grid-cols-1 gap-4 sm:w-[90%] sm:grid-cols-2 lg:w-[80%] lg:grid-cols-6 lg:gap-6">
         <% program_list.each do |program| %>
-          <%= link_to program_path(program.id), class: 'group block' do %>
+          <div class="group block">
             <article class="relative overflow-hidden rounded-2xl border border-red-500 bg-blue-950 transition duration-300 group-hover:-translate-y-1">
               <div class="aspect-[4/5] w-full overflow-hidden sm:aspect-[3/4] lg:aspect-[5/4]">
                 <%= image_tag(
@@ -59,7 +62,7 @@
                 <h3 class="mt-2 text-xl font-semibold text-white sm:text-2xl"><%= program.hero_title %></h3>
               </div>
             </article>
-          <% end %>
+          </div>
         <% end %>
       </div>
     <% end %>

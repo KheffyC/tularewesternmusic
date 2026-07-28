@@ -1,5 +1,6 @@
 class FundraisersController < ApplicationController
   before_action :authenticate_director!, only: %i[new create edit update destroy]
+  before_action :require_feature_enabled!, only: %i[index show]
   before_action :set_fundraiser, only: %i[show edit update destroy]
 
   def index
@@ -60,5 +61,9 @@ class FundraisersController < ApplicationController
       :title, :description, :goal, :call_to_action,
       :start_date, :end_date, :program_id, :flyer
     )
+  end
+
+  def require_feature_enabled!
+    render file: Rails.public_path.join("404.html"), status: :not_found, layout: false unless @school&.fundraisers_enabled?
   end
 end

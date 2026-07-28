@@ -18,12 +18,13 @@ Rails.application.routes.draw do
     resources :galleries do
       post :upload_image, on: :member
     end
+    resources :staff_members
 
     root to: "schools#index"
   end
 
-  # Program Routes for each program at each school
-  resources :programs
+  # Program index routes remain available for admin-facing usage if needed
+  resources :programs, only: [:index]
 
   # School routes for each school
   resources :schools
@@ -35,6 +36,8 @@ Rails.application.routes.draw do
   resources :galleries
 
   resources :fundraisers
+  resources :staff_members, only: [:index]
+  resources :boosters, only: [:index]
   resources :donations do
     get :payment_confirmation, on: :collection, path: '/payment_confirmation/:id'
   end

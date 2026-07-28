@@ -1,0 +1,24 @@
+<% if @boosters.any? %>
+  <div class="space-y-8 sm:space-y-12">
+    <% @boosters.each_with_index do |booster, index| %>
+      <article class="flex flex-col gap-6">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 sm:text-3xl"><%= booster.full_name %></h3>
+          <% if booster.role.present? %>
+            <p class="mt-1 text-sm font-semibold uppercase tracking-[0.15em] text-red-700/80"><%= booster.role %></p>
+          <% end %>
+          <% if booster.description.present? %>
+            <p class="mt-4 text-base leading-relaxed text-slate-700"><%= booster.description %></p>
+          <% end %>
+        </div>
+      </article>
+      <% if index < @boosters.size - 1 %>
+        <hr class="border-t-2 border-red-400/40" />
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="flex min-h-[40vh] flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 px-6 text-center">
+    <p class="text-lg font-semibold text-slate-700">No boosters listed yet.</p>
+  </div>
+<% end %>

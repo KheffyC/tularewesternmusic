@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2026_07_24_002000) do
+ActiveRecord::Schema[7.0].define(version: 2026_07_28_120001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -177,8 +177,26 @@ ActiveRecord::Schema[7.0].define(version: 2026_07_24_002000) do
     t.string "rehearsal_absence_form"
     t.string "handbook_contract_form"
     t.string "about_hero_image"
+    t.boolean "staff_enabled", default: false, null: false
+    t.boolean "boosters_enabled", default: false, null: false
+    t.boolean "fundraisers_enabled", default: false, null: false
+    t.boolean "photo_gallery_enabled", default: false, null: false
     t.index ["district_id"], name: "index_schools_on_district_id"
     t.index ["name"], name: "index_schools_on_name"
+  end
+
+  create_table "staff_members", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "title"
+    t.text "bio"
+    t.boolean "is_band_director", default: false, null: false
+    t.integer "display_order", default: 0
+    t.bigint "school_id", null: false
+    t.bigint "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_staff_members_on_program_id"
+    t.index ["school_id"], name: "index_staff_members_on_school_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -190,4 +208,6 @@ ActiveRecord::Schema[7.0].define(version: 2026_07_24_002000) do
   add_foreign_key "galleries", "schools"
   add_foreign_key "programs", "schools"
   add_foreign_key "schools", "districts"
+  add_foreign_key "staff_members", "programs"
+  add_foreign_key "staff_members", "schools"
 end
