@@ -18,9 +18,6 @@
 			<% if @school&.photo_gallery_enabled? %>
 				<li class="px-4"><%= link_to 'Gallery', galleries_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 			<% end %>
-			<% if @school&.boosters_enabled? %>
-				<li class="px-4"><%= link_to 'Our Boosters', boosters_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
-			<% end %>
 			<% if @school&.fundraisers_enabled? %>
 				<li class="px-4"><%= link_to 'Fundraising', fundraisers_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 			<% end %>
@@ -50,9 +47,6 @@
 					<% if @school&.photo_gallery_enabled? %>
 						<li class="mb-1"><%= link_to 'Gallery', galleries_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
 					<% end %>
-					<% if @school&.boosters_enabled? %>
-						<li class="mb-1"><%= link_to 'Our Boosters', boosters_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
-					<% end %>
 					<% if @school&.fundraisers_enabled? %>
 						<li class="mb-1"><%= link_to 'Fundraising', fundraisers_path, class: "block rounded p-4 text-sm font-semibold text-gray-100 hover:bg-blue-500 hover:text-red-900" %></li>
 					<% end %>
@@ -67,7 +61,7 @@
 			</div>
 			<div class="mt-auto">
 				<p class="my-4 text-xs text-center text-white">
-					<span>Copyright © 2023</span>
+					<span>Copyright © <%= Time.current.year %></span>
 				</p>
 			</div>
 		</nav>
