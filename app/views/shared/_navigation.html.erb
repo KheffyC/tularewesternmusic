@@ -10,6 +10,7 @@
 			</button>
 		</div>
 		<ul class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform x-lg:mx-auto x-lg:flex x-lg:items-center x-lg:w-auto lg:flex lg:w-auto lg:items-center lg:divide-x lg:divide-white/30">
+			<li class="px-4"><%= link_to 'Home', home_index_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 			<% if @school&.staff_enabled? %>
 				<li class="px-4"><%= link_to 'Our Staff', staff_members_path, class: "text-base text-white hover:text-gray-500 lg:text-xl" %></li>
 			<% end %>
